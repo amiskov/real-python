@@ -10,4 +10,12 @@
         <p>{{ p.post }}</p>
         <hr>
     {% endfor %}
+
+    <h2>Add post</h2>
+    <form action="{{url_for('add')}}" method="post">
+        <input type="text" name="title" id="">
+        <textarea name="post" id="" cols="30" rows="10"></textarea>
+        <button>Send</button>
+    </form>
 {% endblock %}
+
