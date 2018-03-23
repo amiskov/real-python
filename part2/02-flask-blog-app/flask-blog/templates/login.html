@@ -1,0 +1,12 @@
+{% extends 'template.html' %}
+{% block content %}
+    <h2>Welcome to Flask Blog</h2>
+    <p>Please, login.</p>
+    <p>Temp login: <a href="/main">Log in</a></p>
+
+    <form action="" method="POST">
+        <input type="text" name="username" placeholder="Username" value="{{request.form.username}}">
+        <input type="password" name="password" placeholder="password" value="{{request.form.password}}">
+        <input type="submit" value="Send">
+    </form>
+{% endblock %}

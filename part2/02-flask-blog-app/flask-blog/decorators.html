@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// function showPost () {
+//   return 'Here\' s the post'
+// }
+// function showProfile () {
+//   return 'Here\' s your profile'
+// }
+// sessionStorage.setItem('logged_in', 'yes');
+function loginRequired (fn) {
+  return function () {
+    if (window.sessionStorage.getItem('logged_in') === 'yes') {
+      return fn.apply(this, arguments)
+    } else {
+      return 'Sorry, you can\'t read posts.'
+    }
+  }
+}
+
+const showProfile = loginRequired(() => 'Here\'s your profile')
+const showPost = loginRequired(() => 'Here\'s your post')
+
+window.alert(showPost())
+window.alert(showProfile())
+</script>
+</body>
+</html>
